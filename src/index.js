@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 //for this to be a single page application with routing using react router import the following:
 import { BrowserRouter, Routes, Route } from "react-router-dom" /*BrowserRouter is a context provider*/
+import About from "./components/About"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     <Routes>
     
       <Route path="/" element={<App/>}/> 
+      <Route path="/about" element={<About/>}/>
     </Routes>    
   </BrowserRouter>
   </React.StrictMode>
