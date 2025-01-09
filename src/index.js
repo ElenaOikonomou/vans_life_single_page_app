@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 //for this to be a single page application with routing using react router import the following:
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom" /*BrowserRouter is a context provider*/
 import NavBar from "./components/NavBar"
+import aboutPage from "./images/aboutPage_pic.png"
 
 
 function App() {
@@ -40,7 +41,8 @@ function About(){
   return (
     <div>
       <NavBar/>
-      <h1>This is my About Section</h1>
+      <img className='about--img' src={aboutPage} alt="van_at_a_starry_night"/>
+      <h1 className='about--h1'>Don’t squeeze in a sedan when you could relax in a van.</h1>
     </div>
   )
 }
