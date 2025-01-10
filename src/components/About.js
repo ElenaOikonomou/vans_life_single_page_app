@@ -19,8 +19,10 @@ export default function About(){
           magic of touring the world on 4 wheels.</p>
             <div className='about--main'>
                 <h2>Your destination is waiting.<br/>
-                Your van is ready.</h2>            
-                <Link className='link--button' to="/vans">Explore our vans</Link>            
+                Your van is ready.</h2>
+                <div className='link--button'>           
+                <Link  to="/vans">Explore our vans</Link>  
+                </div>           
             </div>
           </div>
       

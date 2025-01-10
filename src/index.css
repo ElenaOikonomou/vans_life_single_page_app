@@ -177,6 +177,14 @@ align-self: center;
   opacity: 0px;
   background-color:  #FF8C38;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+}
+
+.homeLinkButton a{
   font-family: Inter;
   font-size: 15.95px;
   font-weight: 700;
@@ -265,10 +273,35 @@ align-self: center;
   gap: 0px;
   border-radius: 10px;
   opacity: 0px;
-  background-color: #161616;
+  background-color: #161616;  
+  margin-bottom: 32px;   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   
-  margin-bottom: 32px;
-  
+
+}
+
+.link--button a {
+  width: 130px;
+  height: 24px;
+  top: 12px;
+  left: 22px;
+  gap: 0px;
+  opacity: 0px;
+  color: #FFFFFF;
+  font-family: Inter;
+  font-size: 15.95px;
+  font-weight: 700;
+  line-height: 23.92px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+
+
+
 
 }
 
