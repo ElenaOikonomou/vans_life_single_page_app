@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom" /*BrowserRouter is a context provider*/
+import { Link } from "react-router-dom" /*BrowserRouter is a context provider*/
 
 export default function NavBar() {
   return (

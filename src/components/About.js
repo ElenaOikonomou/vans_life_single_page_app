@@ -1,6 +1,6 @@
 import React from 'react'
 import AboutPage_pic from "../images/aboutPage_pic.png"
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import {  Link } from "react-router-dom"
  
 
 export default function About(){

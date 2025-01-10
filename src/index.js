@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 //for this to be a single page application with routing using react router import the following:
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom" ;/*BrowserRouter is a context provider*/
+import { BrowserRouter, Routes, Route} from "react-router-dom" ;/*BrowserRouter is a context provider*/
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer.js";
 import Home from './components/Home.js';
