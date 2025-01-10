@@ -167,7 +167,7 @@ align-self: center;
 
 }
 
-.home--main button{
+.homeLinkButton{
   width: 494.33px;
   height: 49.83px;
   top: 383.7px;
@@ -188,7 +188,7 @@ align-self: center;
 
 }
 
-.home--footer{
+.footer{
   background: #252525;
   width: 548px;
   height: 74.75px;
@@ -207,6 +207,7 @@ align-self: center;
   flex-direction: row;
   align-items: center;
   justify-content: center ;
+  margin-bottom: 0%;
 }
 
 
@@ -256,7 +257,7 @@ align-self: center;
 
 }
 
-.about--main button {
+.link--button {
   width: 174px;
   height: 49px;
   top: 827px;
@@ -265,19 +266,12 @@ align-self: center;
   border-radius: 10px;
   opacity: 0px;
   background-color: #161616;
-  color: #FFFFFF;
-  font-family: Inter;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 23.92px;
-  text-align: center;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  width: 130px;
+  
   margin-bottom: 32px;
   
 
 }
+
 
 
 .about--h1{
