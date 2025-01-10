@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer.js";
 import Home from './components/Home.js';
 import About from './components/About.js';
+import VansListPage from './components/VansListPage.js';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>    
         <Route path="/" element={<div><NavBar/><Home/><Footer/></div>}/> {/*path="/" (single slash) refers to homepage meaning the App is gonna be displayed on the homepage page*/}
         <Route path="/about" element={<div><NavBar/><About/><Footer/></div>}/>
+        <Route path="/vans_list" element= {<div><NavBar/><VansListPage/><Footer/></div>}/>
     </Routes>    
   </BrowserRouter>
   )
