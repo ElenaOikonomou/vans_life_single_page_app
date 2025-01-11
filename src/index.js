@@ -9,6 +9,7 @@ import Footer from "./components/Footer.js";
 import Home from './components/Home.js';
 import About from './components/About.js';
 import VansListPage from './components/VansListPage.js';
+import "./server"
 
 function App() {
   return (
