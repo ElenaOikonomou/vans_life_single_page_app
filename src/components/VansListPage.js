@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState} from 'react'
+import { Link } from "react-router-dom"
 
 export default function VansListPage() {
 
@@ -10,24 +11,20 @@ export default function VansListPage() {
     
       const selectedData = data.map(van =>{
         return (
-          <div key={van.id}>
-            <h2>{van.name}</h2>
+          <div key={van.id} className='vansList-specs'>
             <img src={van.imageUrl} alt={van.name} />
-            <p>{van.description}</p>
+            <div className='vans-name-price'>
+              <h2>{van.name}</h2>
+              <h2>${van.price} <br/>/per day</h2>
+            </div>
+            <h3>{van.type}</h3>
           </div>
         )
       })
       return selectedData
       }
       
-  
-
-  /*const finalVansData = vansData.map(van => {
-    return (van.imageUrl)
-  })*/
- 
-
-    useEffect(() => {
+      useEffect(() => {
       console.log('useEffect ran');
       fetch("/api/vans")
         .then(response => response.json())
@@ -42,9 +39,17 @@ export default function VansListPage() {
 
 
   return (
-    <div>
-    <h1>These are my data</h1>
-        <div>{displayedData(vansData)}</div>
+    <div className='vansList--div'>
+      <h1>Explore our vans options</h1>
+      <div className="vansList--links">
+        <Link to='/simple_vans'>Simple</Link>
+        <Link to='/luxury_vans'>Luxury</Link>
+        <Link to='/rugged_vans'>Rugged</Link>
+        <Link to='/clicked_van' className='filters'>Clear filters</Link> 
+      </div>   
+      <div>{displayedData(vansData)}</div>
+      
     </div>
   )
 }
+
