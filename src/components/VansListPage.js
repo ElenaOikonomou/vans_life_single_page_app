@@ -47,7 +47,7 @@ export default function VansListPage() {
         <Link to='/rugged_vans'>Rugged</Link>
         <Link to='/clicked_van' className='filters'>Clear filters</Link> 
       </div>   
-      <div>{displayedData(vansData)}</div>
+      <div className='displayed-data'>{displayedData(vansData)}</div>
       
     </div>
   )
