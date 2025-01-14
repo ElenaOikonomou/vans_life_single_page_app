@@ -7,6 +7,7 @@ export default function VansListPage() {
   const [vansData, setVansData] = useState([])
 
   
+  
   function displayedData(data){
     
       const selectedData = data.map(van =>{
@@ -15,9 +16,9 @@ export default function VansListPage() {
             <img src={van.imageUrl} alt={van.name} />
             <div className='vans-name-price'>
               <h2>{van.name}</h2>
-              <h2>${van.price} <br/>/per day</h2>
+              <h2>${van.price} <br/>/day</h2>
             </div>
-            <h3>{van.type}</h3>
+            <h3 >{van.type}</h3>
           </div>
         )
       })
@@ -35,7 +36,7 @@ export default function VansListPage() {
         .catch(error => console.error("Error fetching vans:", error));
     }, []);
     
-
+    
 
 
   return (
@@ -51,5 +52,5 @@ export default function VansListPage() {
       
     </div>
   )
-}
+  }
 
