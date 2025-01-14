@@ -356,6 +356,8 @@ margin-top: 31px;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+  margin-bottom: 55px;
+  width: 495px;
   
 }
 
@@ -399,6 +401,7 @@ margin-top: 31px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start ;
+  max-width: 548px;
 }
 
 .vans-name-price{
@@ -406,7 +409,7 @@ margin-top: 31px;
   flex-direction: row;
   gap: 29px !important;
   font-family: Inter;
-  font-size: 20px;
+  font-size: 13px;
   font-weight: 600;
   line-height: 31.66px;
   text-align: left;
