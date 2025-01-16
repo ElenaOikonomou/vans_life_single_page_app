@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<div><NavBar/><Home/><Footer/></div>}/> {/*path="/" (single slash) refers to homepage meaning the App is gonna be displayed on the homepage page*/}
         <Route path="/about" element={<div><NavBar/><About/><Footer/></div>}/>
         <Route path="/vans_list" element= {<div><NavBar/><VansListPage/><Footer/></div>}/>
-        <Route path="/:id" element={<VanDetail/>}/> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
+        <Route path="/vans/:id" element={<div><NavBar/><VanDetail/><Footer/></div>}/> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
     </Routes>    
   </BrowserRouter>
   )

@@ -30,7 +30,7 @@ export default function VansListPage() {
               <h2>${van.price} <br/>/day</h2>
             </div>
             </Link>
-            <i className={`van-type ${van.type} selected`}>{van.type}</i>
+            <i className='type--i'>{van.type}</i>
           </div>
           
           
