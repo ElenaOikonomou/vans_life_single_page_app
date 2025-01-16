@@ -203,9 +203,8 @@ align-self: center;
 
 .footer{
   background: #252525;
-  width: 548px;
-  height: 74.75px;
-  top: 498.32px;  
+  max-width: 548px;
+  height: 74.75px;   
   gap: 0px;
   opacity: 0px;
   font-family: Inter;
