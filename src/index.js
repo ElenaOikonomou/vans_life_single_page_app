@@ -4,24 +4,26 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 //for this to be a single page application with routing using react router import the following:
 import { BrowserRouter, Routes, Route} from "react-router-dom" ;/*BrowserRouter is a context provider*/
-import NavBar from "./assets/NavBar.js";
-import Footer from "./assets/Footer.js";
 import Home from './assets/Home.js';
 import About from './assets/About.js';
 import VansListPage from './assets/VansListPage.js';
 import VanDetail from './assets/VanDetail.js';
+import Layout from './components/Layout.js';
+//the server file is for setting up a server to handle requests and serve the static files (html, css, js)
 import "./server"
 
 function App() {
   return (
     <BrowserRouter>  
              
-      <Routes>    
-        <Route path="/" element={<div><NavBar/><Home/><Footer/></div>}/> {/*path="/" (single slash) refers to homepage meaning the App is gonna be displayed on the homepage page*/}
-        <Route path="/about" element={<div><NavBar/><About/><Footer/></div>}/>
-        <Route path="/vans_list" element= {<div><NavBar/><VansListPage/><Footer/></div>}/>
-        <Route path="/vans/:id" element={<div><NavBar/><VanDetail/><Footer/></div>}/> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
-    </Routes>    
+      <Routes>   
+      <Route element={<Layout />} >
+        <Route path="/" element={<Home/>}/> {/*path="/" (single slash) refers to homepage meaning the App is gonna be displayed on the homepage page*/}
+        <Route path="/about" element={<About/>}/>
+        <Route path="/vans_list" element= {<VansListPage/>}/>
+        <Route path="/vans/:id" element={<VanDetail/>}/> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
+      </Route>
+        </Routes>    
   </BrowserRouter>
   )
 }
