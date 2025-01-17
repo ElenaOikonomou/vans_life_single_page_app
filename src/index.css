@@ -37,32 +37,6 @@ html, body {
   
 }
 
-.h2--about{
-  /* About */
-
-/*position: absolute;*/
-/*width: 51.83px;*/
-height: 22.92px;
-/*left: 405.73px;*/
-/*top: 45.12px;*/
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 23px;
-/* identical to box height, or 143% */
-text-align: right;
-text-decoration-line: underline;
-color: #161616;
-align-self: center;
-justify-items: center;
-
-
-
-
- 
-  
-}
 .site-logo{
   align-self: center;
  
@@ -80,23 +54,20 @@ justify-items: center;
   gap: 0px;
   opacity: 0px;
   text-decoration: none;
-  color: inherit; /* Keeps the text color consistent with the theme */
-
-  
+  color: inherit; /* Keeps the text color consistent with the theme */ 
  
 }
 
 
 
-.h2--vans{
-  /* Vans */
+.h2--about, .h2--host, .h2--vans{
+  /* About */
 
-/*position: absolute;
-width: 51.83px;
+/*position: absolute;*/
+/*width: 51.83px;*/
 height: 22.92px;
-left: 470.51px;
-top: 45.12px;*/
-
+/*left: 405.73px;*/
+/*top: 45.12px;*/
 font-family: 'Inter';
 font-style: normal;
 font-weight: 600;
@@ -104,12 +75,18 @@ font-size: 16px;
 line-height: 23px;
 /* identical to box height, or 143% */
 text-align: right;
+text-decoration: none ;
 color: #4D4D4D;
 align-self: center;
+justify-items: center;
 
 
 
+
+ 
+  
 }
+
 
 .home--main {
     width: 548px;;

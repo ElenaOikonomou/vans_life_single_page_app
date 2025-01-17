@@ -4,11 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 //for this to be a single page application with routing using react router import the following:
 import { BrowserRouter, Routes, Route} from "react-router-dom" ;/*BrowserRouter is a context provider*/
-import Home from './assets/Home.js';
-import About from './assets/About.js';
-import VansListPage from './assets/VansListPage.js';
-import VanDetail from './assets/VanDetail.js';
+import Home from './pages/Home.js';
+import About from './pages/About.js';
+import VansListPage from './pages/vans/VansListPage.js';
+import VanDetail from './pages/vans/VanDetail.js';
 import Layout from './components/Layout.js';
+import Dashboard from './pages/Host/Dashboard.js';
+import Income from './pages/Host/Income.js';
+import Reviews from './pages/Host/Reviews.js';  
 //the server file is for setting up a server to handle requests and serve the static files (html, css, js)
 import "./server"
 
@@ -21,6 +24,10 @@ function App() {
         <Route path="/" element={<Home/>}/> {/*path="/" (single slash) refers to homepage meaning the App is gonna be displayed on the homepage page*/}
         <Route path="/about" element={<About/>}/>
         <Route path="/vans_list" element= {<VansListPage/>}/>
+        <Route path='/host' element={<Dashboard />}>
+          <Route path="/host/income" element={<Income/>}/>
+          <Route path="/host/reviews" element={<Reviews/>}/>{/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
+        </Route> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
         <Route path="/vans/:id" element={<VanDetail/>}/> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
       </Route>
         </Routes>    
