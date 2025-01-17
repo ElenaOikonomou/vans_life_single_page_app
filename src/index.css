@@ -24,43 +24,40 @@ html, body {
   }
 
    /*36px 25.82px 34.62px 26px;*/
+   .site-logo{
+    align-self: center;
+   
+    font-family: Inter;
+    font-size: 25px;
+    font-weight: 900;
+    line-height: 40.27px;
+    text-align: left;
+    text-decoration-skip-ink: none;
+    color: #000000;
+    width: 144.51px;
+    height: 41px;
+    top: 36px;
+    padding-left: 26px;
+    gap: 0px;
+    opacity: 0px;
+    text-decoration: none;
+    color: inherit; /* Keeps the text color consistent with the theme */ 
+   
+  }
 
 
-.navbar--h2{
+.navbar--h2, .hostLayout{
   display: flex;
   flex-direction: row;
   align-items:center;
   color: #000000;
   gap: 35px !important;
-  padding-right: 26px;
-  
-  
-}
-
-.site-logo{
-  align-self: center;
- 
-  font-family: Inter;
-  font-size: 25px;
-  font-weight: 900;
-  line-height: 40.27px;
-  text-align: left;
-  text-decoration-skip-ink: none;
-  color: #000000;
-  width: 144.51px;
-  height: 41px;
-  top: 36px;
   padding-left: 26px;
-  gap: 0px;
-  opacity: 0px;
-  text-decoration: none;
-  color: inherit; /* Keeps the text color consistent with the theme */ 
- 
+  
+  
 }
 
-
-
-.h2--about, .h2--host, .h2--vans{
+.h2--about, .h2--host, .h2--vans, .hostLayout a{
   /* About */
 
 /*position: absolute;*/
