@@ -4,12 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 //for this to be a single page application with routing using react router import the following:
 import { BrowserRouter, Routes, Route} from "react-router-dom" ;/*BrowserRouter is a context provider*/
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer.js";
-import Home from './components/Home.js';
-import About from './components/About.js';
-import VansListPage from './components/VansListPage.js';
-import VanDetail from './components/VanDetail.js';
+import NavBar from "./assets/NavBar.js";
+import Footer from "./assets/Footer.js";
+import Home from './assets/Home.js';
+import About from './assets/About.js';
+import VansListPage from './assets/VansListPage.js';
+import VanDetail from './assets/VanDetail.js';
 import "./server"
 
 function App() {
