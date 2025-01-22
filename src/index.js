@@ -24,12 +24,15 @@ function App() {
       <Route element={<Layout />} >
         <Route path="/" element={<Home/>}/> {/*path="/" (single slash) refers to homepage meaning the App is gonna be displayed on the homepage page*/}
         <Route path="/about" element={<About/>}/>
-        <Route path="/vans_list" element= {<VansListPage/>}/>
+
+        <Route path="/vans" element= {<VansListPage/>}/>
+        <Route path="/vans/:id" element={<VanDetail/>}/> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
+       
         <Route path='/host' element={<HostLayout />}>
           <Route path="/host/income" element={<Income/>}/>
           <Route path="/host/reviews" element={<Reviews/>}/>{/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
         </Route> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
-        <Route path="/vans/:id" element={<VanDetail/>}/> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
+       
       </Route>
         </Routes>    
   </BrowserRouter>
