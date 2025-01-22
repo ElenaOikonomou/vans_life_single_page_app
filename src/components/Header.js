@@ -7,7 +7,7 @@ export default function Header() {
     const myStyle = {
         fontWeight: "bold",
         textDecoration: "underline" ,
-        color: "black"
+        color: '#161616'
     }
 
 
