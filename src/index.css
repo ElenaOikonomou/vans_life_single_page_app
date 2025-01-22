@@ -55,18 +55,10 @@ html, body {
   padding-left: 26px;
   
   
+  
 }
 
-.h2--about, .h2--host, .h2--vans, .hostLayout a{
-  /* About */
-
-/*position: absolute;*/
-/*width: 51.83px;*/
-height: 22.92px;
-/*left: 405.73px;*/
-/*top: 45.12px;*/
-font-family: 'Inter';
-font-style: normal;
+header a, .hostLayout a{ 
 font-weight: 600;
 font-size: 16px;
 line-height: 23px;
@@ -77,11 +69,6 @@ color: #4D4D4D;
 align-self: center;
 justify-items: center;
 
-
-
-
- 
-  
 }
 
 
@@ -275,7 +262,6 @@ justify-items: center;
   font-weight: 700;
   line-height: 23.92px;
   text-align: left;
-  text-underline-position: from-font;
   text-decoration-skip-ink: none;
 
 

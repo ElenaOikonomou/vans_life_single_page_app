@@ -1,17 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom' 
 
 
 
 export default function Header() {
+    const myStyle = {
+        fontWeight: "bold",
+        textDecoration: "underline" ,
+        color: "black"
+    }
+
+
   return (
     <div>    
         <header className='header'>
-        <Link className="site-logo" to="/">#VanLife</Link>
+        <NavLink className="site-logo" to="/">#VanLife</NavLink>
         <nav className='navbar--h2'>
-            <Link to='/host'><h2 className='h2--host'>Host</h2></Link>
-            <Link to="/about"><h2 className='h2--about'>About</h2></Link>
-            <Link to="/vans"><h2 className='h2--vans'>Vans</h2></Link>
+            <NavLink to='/host' style = {({isActive})=> isActive? myStyle : null}>Host</NavLink> {/*instead of creating a myStyle obj, I could use a className with the same syntax and add my styles to css*/ }
+            <NavLink to="/about" style = {({isActive})=> isActive? myStyle : null}>About</NavLink>
+            <NavLink to="/vans" style = {({isActive})=> isActive? myStyle : null}>Vans</NavLink>
         </nav>
         </header> 
     </div>
