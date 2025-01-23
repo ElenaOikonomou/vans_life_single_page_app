@@ -13,7 +13,8 @@ export default function HostLayout() {
     <nav className='hostLayout'>
      <NavLink to='/host' end  style={({isActive}) => isActive? hostStyles : null}>Dashboard</NavLink> {/*/end the matching here otherwise the style will always be applied when we are inside the host url*/}
      <NavLink to="/host/income" style={({isActive}) => isActive? hostStyles : null}>Income</NavLink>
-     <NavLink to="/host/reviews" style={({isActive}) => isActive? hostStyles : null}>Reviews</ NavLink>      
+     <NavLink to="/host/reviews" style={({isActive}) => isActive? hostStyles : null}>Reviews</NavLink>
+     <NavLink to="/host/vans" style={({isActive}) => isActive? hostStyles : null}>Vans</NavLink>            
     </nav>
     <Outlet /> {/* The Outlet component renders the component that matches the current route */}
     </div>
