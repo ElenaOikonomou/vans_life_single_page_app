@@ -15,6 +15,10 @@ import Reviews from './pages/Host/Reviews.js';
 import HostLayout from './components/HostLayout.js';
 import HostVans from './pages/Host/HostVans.js';
 import HostVanDetail from './pages/Host/HostVanDetail.js';
+
+import HostVanInfo from './pages/Host/HostVanInfo.js';  
+import HostVanPhotos from './pages/Host/HostVanPhotos.js';
+
 //the server file is for setting up a server to handle requests and serve the static files (html, css, js)
 import "./server"
 
@@ -36,7 +40,12 @@ function App() {
           <Route index element={<Dashboard/>}></Route>
           <Route path="income" element={<Income/>}/>
           <Route path="vans" element={<HostVans/>}/>
-          <Route path="vans/:id" element={<HostVanDetail/>}/>           
+
+          <Route path="vans/:id" element={<HostVanDetail/>}>
+           <Route path="info" element={<HostVanInfo/>}/>
+           <Route path="photos" element={<HostVanPhotos/>}/>
+                   
+          </Route>           
           <Route path="reviews" element={<Reviews/>}/>{/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
           
           </Route> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }

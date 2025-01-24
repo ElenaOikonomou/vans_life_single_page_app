@@ -1,5 +1,6 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Outlet} from 'react-router-dom';
+
 
 export default function HostVanDetail() {
     const { id } = useParams();
@@ -26,6 +27,9 @@ export default function HostVanDetail() {
             <i className="type--i">{details.type}</i>
             <h2>{details.name}</h2>
             <p>${details.price}/day</p>
+          </div>
+          <div className='Host-Van-Navbar'>
+          <Outlet /> {/* This will render the component below the HostVanDetail */}
           </div>
         </div>
     );

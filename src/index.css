@@ -548,3 +548,8 @@ margin-top: 31px;
     flex-direction: column;
     padding-left: 25px;
   }
+
+  .Host-Van-Navbar{
+    display: flex;
+    flex-direction: row;
+  }
