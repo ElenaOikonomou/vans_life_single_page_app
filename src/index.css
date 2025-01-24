@@ -165,22 +165,21 @@ justify-items: center;
 
 .footer{
   background: #252525;
-  max-width: 548px;
   height: 74.75px;   
   gap: 0px;
   opacity: 0px;
-  font-family: Inter;
   font-size: 14px;
   font-weight: 500;
   line-height: 22.92px;
   text-align: center;
-  text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #AAAAAA;
   display: flex;
+  flex-shrink: 0;
   flex-direction: row;
   align-items: center;
   justify-content: center ;
+  margin-top: auto;
   margin-bottom: 0%;
 }
 
@@ -490,5 +489,40 @@ margin-top: 31px;
       color: #201F1D;
       margin-bottom: 40px;
 
-
     }
+
+    .host-vans-title {
+      padding-inline: 26px;
+  }
+
+  .host-van-link-wrapper {
+    color: unset;
+    text-decoration: unset;
+    
+}
+
+.host-van-single {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 15px;
+  padding-block: 18px;
+  padding-left: 24px;
+  width: 548px;
+}
+
+.host-van-single > img {
+  height: 70px;
+  border-radius: 5px;
+  margin-right: 17px;
+}
+
+.host-van-info h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-block: 10px;
+}
+
+.host-van-info p {
+  margin-block: 10px;
+}
