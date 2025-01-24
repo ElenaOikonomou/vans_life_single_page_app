@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 export default function HostVanDetail() {
     const { id } = useParams();
@@ -17,12 +17,16 @@ export default function HostVanDetail() {
     }
 
     return (
-        <div key={details.id}>
-            <img src={details.imageUrl} alt={details.name} />
+        <div key={details.id} className='host-detail-div'>        
+          <Link to=".." 
+          relative="path" 
+          className="back-button"><span>Back to all vans</span></Link> {/*/ I want the link to be relative to the path, not the route hierarchy given by my index.js*/}
+          <img src={details.imageUrl} alt={details.name} />
+          <div className='host-detail-info'>
             <i className="type--i">{details.type}</i>
             <h2>{details.name}</h2>
             <p>${details.price}/day</p>
-            <p>{details.location}</p>
+          </div>
         </div>
     );
 }
