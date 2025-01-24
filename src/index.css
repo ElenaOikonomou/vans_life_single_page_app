@@ -526,3 +526,25 @@ margin-top: 31px;
 .host-van-info p {
   margin-block: 10px;
 }
+
+.host-detail-div{
+  display: flex;
+  flex-direction: row;
+  ;}
+
+
+  .host-detail-div img {
+  width: 160.15px;
+  height: 157.9px;
+  top: 309px;
+  left: 51px;
+  gap: 0px;
+  border-radius: 5px 0px 0px 0px;
+  opacity: 0px
+  }
+
+  .host-detail-info{
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+  }
