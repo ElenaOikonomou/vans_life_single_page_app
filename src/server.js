@@ -16,27 +16,30 @@ createServer({
     },
 
     routes() {
-        this.namespace = "api"
-        this.logging = false
-
+        this.namespace = "api"; // Define the namespace
+        this.logging = false;
+    
+        // Existing routes
         this.get("/vans", (schema, request) => {
-            return schema.vans.all()
-        })
-
+            return schema.vans.all();
+        });
+    
         this.get("/vans/:id", (schema, request) => {
-            const id = request.params.id
-            return schema.vans.find(id)
-        })
-
+            const id = request.params.id;
+            return schema.vans.find(id);
+        });
+    
         this.get("/host/vans", (schema, request) => {
-            // Hard-code the hostId for now
-            return schema.vans.where({ hostId: "123" })
-        })
-
-        this.get("/host/vans/:id", (schema, request) => {
-            // Hard-code the hostId for now
-            const id = request.params.id
-            return schema.vans.where({ id, hostId: "123" })
-        })
+            return schema.vans.where({ hostId: "123" });
+        });
+    
+        // Define this route to fix the issue
+        this.get("/host/:id", (schema, request) => {
+            const id = request.params.id;
+            const van = schema.vans.find(id); // Fetch the van based on the ID
+            return { van }; // Return the van in an object, but not inside `vans`
+        });
+        
     }
+    
 })
