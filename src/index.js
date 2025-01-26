@@ -15,7 +15,7 @@ import Reviews from './pages/Host/Reviews.js';
 import HostLayout from './components/HostLayout.js';
 import HostVans from './pages/Host/HostVans.js';
 import HostVanDetail from './pages/Host/HostVanDetail.js';
-
+import HostVanPricing from './pages/Host/HostVanPricing.js';
 import HostVanInfo from './pages/Host/HostVanInfo.js';  
 import HostVanPhotos from './pages/Host/HostVanPhotos.js';
 
@@ -42,10 +42,11 @@ function App() {
           <Route path="vans" element={<HostVans/>}/>
 
           <Route path="vans/:id" element={<HostVanDetail/>}>
-           <Route path="info" element={<HostVanInfo/>}/>
-           <Route path="photos" element={<HostVanPhotos/>}/>
-                   
+           <Route index element={<HostVanInfo/>}/>
+           <Route path="pricing" element={<HostVanPricing/>}/>  {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
+           <Route path="photos" element={<HostVanPhotos/>}/>                   
           </Route>           
+
           <Route path="reviews" element={<Reviews/>}/>{/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
           
           </Route> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
