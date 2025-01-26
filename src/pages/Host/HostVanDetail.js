@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link, Outlet, NavLink} from 'react-router-dom';
+import { useParams, Link, Outlet, NavLink, useOutletContext} from 'react-router-dom';
 
 
 export default function HostVanDetail() {
@@ -45,7 +45,7 @@ export default function HostVanDetail() {
             <NavLink to='pricing' style={({isActive}) => isActive? styles : null}>Pricing</NavLink>
             <NavLink to='photos' style={({isActive}) => isActive? styles : null}>Photos</NavLink>
           </nav>
-          <Outlet /> {/* This will render the component below the HostVanDetail */}
+          <Outlet context={{details}}/> {/* This will render the component below the HostVanDetail */}
           
 
           </div>
