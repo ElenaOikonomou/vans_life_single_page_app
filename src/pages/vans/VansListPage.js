@@ -1,11 +1,19 @@
 import React from 'react'
 import { useEffect, useState} from 'react'
-import { Link } from "react-router-dom"
+import { Link, useSearchParams} from "react-router-dom"
+
 
 export default function VansListPage() {
 
+  const [searchParams, setSearchParams] = useSearchParams(); // This will hold the query parameters from the URL
   const [vansData, setVansData] = useState([])
 
+  const typeFilter = searchParams.get('type')
+  console.log(typeFilter)
+ 
+
+
+ 
   useEffect(() => {
    
     fetch("/api/vans")
