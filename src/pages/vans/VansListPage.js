@@ -12,6 +12,8 @@ export default function VansListPage() {
   console.log(typeFilter)
  
 
+  const filteredData = typeFilter? vansData.filter(van => van.type.toLowerCase() === typeFilter) : vansData
+
 
  
   useEffect(() => {
@@ -26,7 +28,7 @@ export default function VansListPage() {
   }, []);
   
    
-  const displayedData = vansData.map(van =>{
+  const displayedData = filteredData.map(van =>{
         return (
         <div key={van.id} className='vansList-specs'>
           <Link
@@ -52,10 +54,10 @@ export default function VansListPage() {
     <div className='vansList--div'>
       <h1>Explore our vans options</h1>
       <div className="vansList--links">
-        <Link to='/simple_vans'>Simple</Link>
-        <Link to='/luxury_vans'>Luxury</Link>
-        <Link to='/rugged_vans'>Rugged</Link>
-        <Link to='/clicked_van' className='filters'>Clear filters</Link> 
+        <Link to='?type=simple'>Simple</Link>
+        <Link to='?type=luxury'>Luxury</Link>
+        <Link to='?type=rugged'>Rugged</Link>
+        <Link to='.' className='filters'>Clear filters</Link> 
       </div>   
       <div className='displayed-data'>{displayedData}</div>
       
