@@ -45,6 +45,18 @@ export default function VansListPage() {
           
           
         )})   
+
+
+        function handleFilterChange (key, value) {
+          setSearchParams(prevParams => {
+            if(!value){
+              prevParams.delete(key)
+            } else {
+              prevParams.set(key, value)
+            }
+            return prevParams;
+          })
+        }
       
     
     
@@ -53,11 +65,11 @@ export default function VansListPage() {
   return (
     <div className='vansList--div'>
       <h1>Explore our vans options</h1>
-      <div className="vansList--links">
-        <Link to='?type=simple'>Simple</Link>
-        <Link to='?type=luxury'>Luxury</Link>
-        <Link to='?type=rugged'>Rugged</Link>
-        <Link to='.' className='filters'>Clear filters</Link> 
+      <div className="vansList--buttons">
+       <button onClick={() => handleFilterChange('type', 'simple')}  className={`van-type simple ${typeFilter === 'simple'? 'selected' : ''}`}> Simple</button>
+       <button onClick={() => handleFilterChange('type', 'luxury')}  className={`van-type luxury ${typeFilter === 'luxury'? 'selected': ''}`}>Luxury</button>
+       <button onClick={() => handleFilterChange('type', 'rugged')}  className={`van-type rugged ${typeFilter === 'rugged'? 'selected' : ''}`}>Rugged</button>
+       {typeFilter? (<button onClick={() => handleFilterChange('type', null)}  className="van-type clear-filters">Clear filters</button>) : null}
       </div>   
       <div className='displayed-data'>{displayedData}</div>
       
