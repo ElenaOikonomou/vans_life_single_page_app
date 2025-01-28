@@ -22,13 +22,17 @@ export default function VanDetail() {
         .then(data => setdetails(data.vans))
     }, [params.id])
 
+    const type = location.state?.type || "all"
+
+
+   
   return (
     
     <div>
     
       {details ? (
         <div className='vanDetail---div'>
-            <Link to={`..${search}`} relative='path'>Back to all vans</Link>        
+            <Link to={`..${search}`} relative='path'>Back to {type} vans</Link>        
             <img src={details.imageUrl} alt='display of the van'/>
             <div className='van-chars'>
             <i className='type--i'>{details.type}</i>

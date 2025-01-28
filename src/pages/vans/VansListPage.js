@@ -31,7 +31,8 @@ export default function VansListPage() {
         <div key={van.id} className='vansList-specs'>
           <Link
            to={van.id}
-           aria-label={`View details for ${van.name} priced at $${van.price} per day`} state={{ search: `?${searchParams.toString()} `}}> {/* Says to the screen-reader what to read*/}
+           aria-label={`View details for ${van.name} priced at $${van.price} per day`} 
+           state={{ search: `?${searchParams.toString()} `, type: typeFilter }}> {/* Says to the screen-reader what to read*/}
             <img src={van.imageUrl} alt={`{image of ${van.name}`} />
             <div className='vans-name-price'>
               <h2>{van.name}</h2>
