@@ -671,3 +671,20 @@ left: 51px;
 gap: 0px;
 border-radius: 5px ;
 opacity: 0px;}
+
+.not-found-container {
+  padding-inline: 26px;
+}
+
+.not-found-container .link-button {
+  width: 495;
+  background-color: #161616;
+  color: white;  
+  height: 55px;
+  top: 328.59px;
+  left: 26px;
+  gap: 0px;
+  border-radius: 4.98px ;
+  opacity: 0px;
+
+}

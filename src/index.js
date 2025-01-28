@@ -18,6 +18,7 @@ import HostVanDetail from './pages/Host/HostVanDetail.js';
 import HostVanPricing from './pages/Host/HostVanPricing.js';
 import HostVanInfo from './pages/Host/HostVanInfo.js';  
 import HostVanPhotos from './pages/Host/HostVanPhotos.js';
+import NotFound from './pages/NotFound.js';
 
 //the server file is for setting up a server to handle requests and serve the static files (html, css, js)
 import "./server"
@@ -50,6 +51,7 @@ function App() {
           <Route path="reviews" element={<Reviews/>}/>{/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
           
           </Route> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
+          <Route path="*" element={<NotFound/>}/>
        
       </Route>
         </Routes>    
