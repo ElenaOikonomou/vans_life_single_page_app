@@ -24,9 +24,9 @@ export default function HostVanDetail() {
     }
 
     return (
-        <section>        
+        <section className='hostVanDetail--section'>        
           <Link to=".." 
-          relative="path" 
+          relative="path"  
           className="back-button"><span>Back to all vans</span></Link> {/*/ I want the link to be relative to the path, not the route hierarchy given by my index.js*/}
           
           <div key={details.id} className='host-van-detail-layout-container'>

@@ -1,15 +1,20 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+
 
 
 
 export default function VanDetail() {
 
+  const location = useLocation()
+  console.log(location)
+
     const params = useParams()
     console.log(params)
     const [details, setdetails] = useState(null)
+
+    const search = location.state?.search || "" //newer JS syntax (optional chaining) means if there is a state inside the link then use the value or search else nothing
    
     useEffect(()=>{
         fetch(`/api/vans/${params.id}`)
@@ -20,9 +25,10 @@ export default function VanDetail() {
   return (
     
     <div>
-    {details ? (
+    
+      {details ? (
         <div className='vanDetail---div'>
-        <Link to="/vans_list">Back to all vans</Link>
+            <Link to={`..${search}`} relative='path'>Back to all vans</Link>        
             <img src={details.imageUrl} alt='display of the van'/>
             <div className='van-chars'>
             <i className='type--i'>{details.type}</i>

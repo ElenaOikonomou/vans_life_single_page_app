@@ -12,11 +12,7 @@ export default function VansListPage() {
   console.log(typeFilter)
  
 
-  const filteredData = typeFilter? vansData.filter(van => van.type.toLowerCase() === typeFilter) : vansData
-
-
- 
-  useEffect(() => {
+   useEffect(() => {
    
     fetch("/api/vans")
       .then(response => response.json())
@@ -27,13 +23,15 @@ export default function VansListPage() {
       .catch(error => console.error("Error fetching vans:", error));
   }, []);
   
+
+  const filteredData = typeFilter? vansData.filter(van => van.type.toLowerCase() === typeFilter) : vansData
    
   const displayedData = filteredData.map(van =>{
         return (
         <div key={van.id} className='vansList-specs'>
           <Link
-           to={`/vans/${van.id}`}
-           aria-label={`View details for ${van.name} priced at $${van.price} per day`}> {/* Says to the screen-reader what to read*/}
+           to={van.id}
+           aria-label={`View details for ${van.name} priced at $${van.price} per day`} state={{ search: `?${searchParams.toString()} `}}> {/* Says to the screen-reader what to read*/}
             <img src={van.imageUrl} alt={`{image of ${van.name}`} />
             <div className='vans-name-price'>
               <h2>{van.name}</h2>

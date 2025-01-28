@@ -365,10 +365,12 @@ margin-top: 31px;
 
 .van-type.rugged:hover, .van-type.rugged.selected {
   background-color: #115E59;
+  color: #FFEAD0;
 }
 
 .van-type.luxury:hover, .van-type.luxury.selected {
   background-color: #161616;
+  color: #FFEAD0;
 }
 
 .van-type.clear-filters {
@@ -507,7 +509,6 @@ margin-top: 31px;
       width: 141.92px;
       height: 23px;
       opacity: 0px;
-      font-family: Inter;
       font-size: 15.95px;
       font-weight: 500;
       line-height: 22.92px;
@@ -516,7 +517,7 @@ margin-top: 31px;
       text-decoration-style: solid;
       text-underline-position: from-font;
       text-decoration-skip-ink: none;
-      color: #201F1D;
+      color: black !important;
       margin-bottom: 40px;
 
     }
@@ -557,6 +558,22 @@ margin-top: 31px;
   margin-block: 10px;
 }
 
+.hostVanDetail--section a{
+      width: 141.92px;
+      height: 23px;
+      opacity: 0px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 22.92px;
+      text-align: left;
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-skip-ink: none;
+      color: black !important;
+      margin-bottom: 40px;
+      padding-left: 25px;
+
+}
 
 
 
@@ -565,6 +582,7 @@ margin-top: 31px;
   padding: 24px;
   margin: 30px 26px;
 }
+
 
 
 .host-van-detail {
