@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState} from 'react'
 import { Link, useSearchParams} from "react-router-dom"
+import getVans from '../../api';
 
 
 export default function VansListPage() {
@@ -13,15 +14,12 @@ export default function VansListPage() {
  
 
    useEffect(() => {
-   
-    fetch("/api/vans")
-      .then(response => response.json())
-      .then(data => {
-        console.log("Fetched data:", data);  // Add this
-        setVansData(data.vans);
-      })
-      .catch(error => console.error("Error fetching vans:", error));
-  }, []);
+    async function loadVans() {
+      const data = await getVans()
+      setVansData(data)
+  }
+       loadVans()
+}, []);
   
 
   const filteredData = typeFilter? vansData.filter(van => van.type.toLowerCase() === typeFilter) : vansData
