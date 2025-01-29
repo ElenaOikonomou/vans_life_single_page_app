@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState} from 'react'
 import { Link, useSearchParams} from "react-router-dom"
-import getVans from '../../api';
+import {getVans} from '../../api';
 
 
 export default function VansListPage() {
@@ -65,11 +65,11 @@ export default function VansListPage() {
         }
 
         if(loading){
-          return <h1>Loading...</h1>
+          return <h1 aria-live="polite">Loading...</h1>
         }
       
         if(error){
-          return <h1>There was an Error: {error.message}</h1>
+          return <h1 aria-live="assertive">There was an Error: {error.message}</h1>
         }
     
     

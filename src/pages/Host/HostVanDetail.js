@@ -1,18 +1,38 @@
 import React from 'react';
 import { useParams, Link, Outlet, NavLink, useOutletContext} from 'react-router-dom';
+import { getHostVans } from '../../api';
 
 
 export default function HostVanDetail() {
     const { id } = useParams();
     const [details, setDetails] = React.useState(null);
+    const [loading, setLoading] = React.useState(false);
+    const [error, setError] = React.useState(null)
 
     React.useEffect(() => {
-        fetch(`/api/host/${id}`)
-            .then(resp => resp.json())
-            .then(data => setDetails(data.van)) // Use `van`, not `vans`
-            .catch((error) => console.error("Error fetching details:", error));
-    }, []);
+        async function loadVans(){
+           setLoading (true)
+           try {
+            const data = await getHostVans(id)
+            setDetails(data)
+           } catch (err) {
+            setError(err)
+        } finally {
+          setLoading(false)
+        }
+      }
+        loadVans()
+    }, [id])
 
+    if(loading){
+      return <h1>Loading...</h1>;
+    }
+    
+    if(error){
+      return <h1>There was an error: {error.message}</h1>;
+    }
+      
+     
     if (!details) {
         return <h2>Loading...</h2>;
     }
