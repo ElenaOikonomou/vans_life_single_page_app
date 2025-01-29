@@ -9,6 +9,7 @@ export default function VansListPage() {
   const [searchParams, setSearchParams] = useSearchParams(); // This will hold the query parameters from the URL
   const [vansData, setVansData] = useState([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const typeFilter = searchParams.get('type')
   console.log(typeFilter)
@@ -17,9 +18,14 @@ export default function VansListPage() {
    useEffect(() => {
     async function loadVans() {
       setLoading(true)
-      const data = await getVans()
-      setVansData(data)
+      try{
+        const data = await getVans()
+        setVansData(data)
+      } catch (err) {
+        setError(err)
+      } finally {     
       setLoading(false)
+    }
   }
        loadVans()
 }, []);
@@ -62,6 +68,9 @@ export default function VansListPage() {
           return <h1>Loading...</h1>
         }
       
+        if(error){
+          return <h1>There was an Error: {error.message}</h1>
+        }
     
     
 
