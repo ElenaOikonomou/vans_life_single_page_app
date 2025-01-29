@@ -27,7 +27,7 @@ export default function Login() {
         name="email"
         type="email"
         onChange={handleChange}
-        value=""
+        value={loginFormData.email}
         className="email-form"
         placeholder="Email address"
         />
@@ -37,7 +37,7 @@ export default function Login() {
         className="password-form"
         placeholder="Password"
         onChange={handleChange}
-        value=""
+        value={loginFormData.email}
         />
     <button type="submit" className="submit-btn">Log in</button>        
     </form>
