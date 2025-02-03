@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link, Outlet, NavLink, useOutletContext} from 'react-router-dom';
+import { useParams, Link, Outlet, NavLink} from 'react-router-dom';
 import { getHostVans } from '../../api';
 
 
@@ -32,10 +32,6 @@ export default function HostVanDetail() {
       return <h1>There was an error: {error.message}</h1>;
     }
       
-     
-    if (!details) {
-        return <h2>Loading...</h2>;
-    }
 
     const styles = {
       fontWeight: 'bold',
@@ -49,6 +45,7 @@ export default function HostVanDetail() {
           relative="path"  
           className="back-button"><span>Back to all vans</span></Link> {/*/ I want the link to be relative to the path, not the route hierarchy given by my index.js*/}
           
+          {details &&
           <div key={details.id} className='host-van-detail-layout-container'>
             <div className='host-van-detail'>         
               <img src={details.imageUrl} alt={details.name} />
@@ -61,14 +58,14 @@ export default function HostVanDetail() {
 
 
           <nav className='host-van-detail-navbar'>
-            <NavLink to='.' relative='path' end  style={({isActive}) => isActive? styles : null}>Details</NavLink>
+            <NavLink to='.'  end  style={({isActive}) => isActive? styles : null}>Details</NavLink>
             <NavLink to='pricing' style={({isActive}) => isActive? styles : null}>Pricing</NavLink>
             <NavLink to='photos' style={({isActive}) => isActive? styles : null}>Photos</NavLink>
           </nav>
           <Outlet context={{details}}/> {/* This will render the component below the HostVanDetail */}
           
 
-          </div>
+          </div>}
      </section>
     );
 }

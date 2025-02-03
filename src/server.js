@@ -34,11 +34,11 @@ createServer({
         });
     
         // Define this route to fix the issue
-        this.get("/host/:id", (schema, request) => {
-            const id = request.params.id;
-            const van = schema.vans.find(id); // Fetch the van based on the ID
-            return { van }; // Return the van in an object, but not inside `vans`
-        });
+        this.get("/host/vans/:id", (schema, request) => {
+            // Hard-code the hostId for now
+            const id = request.params.id
+            return schema.vans.findBy({ id, hostId: "123" })
+        })
         
     }
     
