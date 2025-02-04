@@ -35,18 +35,34 @@ export async function getHostVans(id) {
 }
 
 export async function loginUser(creds) {
-    const res = await fetch("/api/login",
-        { method: "post", body: JSON.stringify(creds) }
-    )
-    const data = await res.json()
+    try {
+        const res = await fetch("/api/login", {
+            method: "POST",
+            body: JSON.stringify(creds),
+            headers: { "Content-Type": "application/json" }
+        });
 
-    if (!res.ok) {
-        throw {
-            message: data.message,
-            statusText: res.statusText,
-            status: res.status
+        // If the response is not OK, handle errors before parsing JSON
+        if (!res.ok) {
+            let errorMessage = "An unknown error occurred";
+            
+            // Attempt to extract error message from response body
+            try {
+                const errorData = await res.json();
+                errorMessage = errorData.message || errorMessage;
+            } catch (jsonError) {
+                console.error("Error parsing error response:", jsonError);
+            }
+
+            throw new Error(`${res.status} - ${res.statusText}: ${errorMessage}`);
         }
-    }
 
-    return data
+        // Parse the response body
+        const data = await res.json();
+        return data;
+
+    } catch (error) {
+        console.error("Login failed:", error);
+        throw new Error(error.message || "Something went wrong during login.");
+    }
 }
