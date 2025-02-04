@@ -20,6 +20,7 @@ import HostVanInfo from './pages/Host/HostVanInfo.js';
 import HostVanPhotos from './pages/Host/HostVanPhotos.js';
 import NotFound from './pages/NotFound.js';
 import Login from './pages/Login.js'
+import AuthRequiredLayout from './components/AuthRequiredLayout.js';
 
 //the server file is for setting up a server to handle requests and serve the static files (html, css, js)
 import "./server"
@@ -39,19 +40,19 @@ function App() {
         <Route path="/vans/:id" element={<VanDetail/>}/> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
         
         <Route path="login" element={<Login/>}/> 
-        <Route path='/host' element={<HostLayout />}>
-          <Route index element={<Dashboard/>}></Route>
-          <Route path="income" element={<Income/>}/>
-          <Route path="vans" element={<HostVans/>}/>
 
-          <Route path="vans/:id" element={<HostVanDetail/>}>
-           <Route index element={<HostVanInfo/>}/>
-           <Route path="pricing" element={<HostVanPricing/>}/>  {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
-           <Route path="photos" element={<HostVanPhotos/>}/>                   
-          </Route>           
-
-          <Route path="reviews" element={<Reviews/>}/>{/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
-          
+        <Route element={<AuthRequiredLayout/>}>
+          <Route path='/host' element={<HostLayout />}>
+            <Route index element={<Dashboard/>}></Route>
+            <Route path="income" element={<Income/>}/>
+            <Route path="vans" element={<HostVans/>}/>
+            <Route path="vans/:id" element={<HostVanDetail/>}>
+            <Route index element={<HostVanInfo/>}/>
+            <Route path="pricing" element={<HostVanPricing/>}/>  {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
+            <Route path="photos" element={<HostVanPhotos/>}/>                   
+            </Route>           
+            <Route path="reviews" element={<Reviews/>}/>{/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
+          </Route>
           </Route> {/* :id is a route param (I tell my router this is not literally the address my link will show to)*/ }
           <Route path="*" element={<NotFound/>}/>
        

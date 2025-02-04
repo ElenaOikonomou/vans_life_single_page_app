@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom' 
-
+import { NavLink, Link } from 'react-router-dom' 
+import imageUrl from "../images/avatar-icon.png"
 
 
 export default function Header() {
@@ -19,6 +19,7 @@ export default function Header() {
             <NavLink to='/host' style = {({isActive})=> isActive? myStyle : null}>Host</NavLink> {/*instead of creating a myStyle obj, I could use a className with the same syntax and add my styles to css*/ }
             <NavLink to="/about" style = {({isActive})=> isActive? myStyle : null}>About</NavLink>
             <NavLink to="/vans" style = {({isActive})=> isActive? myStyle : null}>Vans</NavLink>
+            <Link to="login" className="login-link"><img src={imageUrl} className="login-icon" alt=''/></Link>
         </nav>
         </header> 
     </div>
