@@ -1,10 +1,10 @@
-import { createServer, Model } from "miragejs"
+import { createServer, Model, Response } from "miragejs"
 
 
 createServer({
     models: {
         vans: Model,
-        user: Model 
+        users: Model
     },
 
     seeds(server) {
@@ -16,28 +16,28 @@ createServer({
         server.create("van", { id: "6", name: "Green Wonder", price: 70, description: "With this van, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.", imageUrl: "https://assets.scrimba.com/advanced-react/react-router/green-wonder.png", type: "rugged", hostId: "123" })
         
         server.create("user", { id: "123", email: "b@b.com", password: "p123", name: "Bob" })
-    
     },
 
     routes() {
-        this.namespace = "api"; // Define the namespace
-        this.logging = false;
-    
-        // Existing routes
+        this.namespace = "api"
+        this.logging = false
+        // this.timing = 2000  // => mock a 2 second delay in server response
+
         this.get("/vans", (schema, request) => {
-            return schema.vans.all();
-        });
-    
+            // return new Response(400, {}, {error: "Error fetching data"})
+            return schema.vans.all()
+        })
+
         this.get("/vans/:id", (schema, request) => {
-            const id = request.params.id;
-            return schema.vans.find(id);
-        });
-    
+            const id = request.params.id
+            return schema.vans.find(id)
+        })
+
         this.get("/host/vans", (schema, request) => {
-            return schema.vans.where({ hostId: "123" });
-        });
-    
-        // Define this route to fix the issue
+            // Hard-code the hostId for now
+            return schema.vans.where({ hostId: "123" })
+        })
+
         this.get("/host/vans/:id", (schema, request) => {
             // Hard-code the hostId for now
             const id = request.params.id
@@ -48,7 +48,7 @@ createServer({
             const { email, password } = JSON.parse(request.requestBody)
             // ⚠️ This is an extremely naive version of authentication. Please don't
             // do this in the real world, and never save raw text passwords
-            // in your database 
+            // in your database 😅
             const foundUser = schema.users.findBy({ email, password })
             if (!foundUser) {
                 return new Response(401, {}, { message: "No user with those credentials found!" })
@@ -62,5 +62,4 @@ createServer({
             }
         })
     }
-    
 })

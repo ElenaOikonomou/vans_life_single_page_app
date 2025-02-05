@@ -1,22 +1,24 @@
-import React from 'react';
-import {useNavigate, useLocation} from "react-router-dom";
-import { loginUser } from '../api.js'
+import React from "react"
+import { useLocation, useNavigate } from "react-router-dom"
+import { loginUser } from "../api"
 
 
 export default function Login() {
-
-    const[loginFormData, setLoginFormData] = React.useState({email: '', password: ''})
-    const location = useLocation()
-    const [status, setStatus] = React.useState('idle')
+    const [loginFormData, setLoginFormData] = React.useState({ email: "", password: "" })
+    const [status, setStatus] = React.useState("idle")
     const [error, setError] = React.useState(null)
+
+    const location = useLocation()
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
         setStatus("submitting")
         loginUser(loginFormData)
             .then(data => {
-                console.log(data)
                 setError(null)
+                localStorage.setItem("loggedin", true)
+                navigate("/host", {replace: true})
             })
             .catch(err => {
                 setError(err)
@@ -27,44 +29,51 @@ export default function Login() {
     }
 
     function handleChange(e) {
-        const {name, value} = e.target
-        setLoginFormData( prev =>({
-        ...prev,
-        [name] : value
-    }))
+        const { name, value } = e.target
+        setLoginFormData(prev => ({
+            ...prev,
+            [name]: value
+        }))
     }
 
-  return (
-    <div className="login-container">
-    {location.state?.message && <h3 className='login-error'>{location.state.message}</h3>}
-     <h1>Sign in to your account</h1>
+    return (
+        <div className="login-container">
+            {
+                location.state ?.message &&
+                    <h3 className="login-error">{location.state.message}</h3>
+            }
+            <h1>Sign in to your account</h1>
+            {
+                error ?.message &&
+                    <h3 className="login-error">{error.message}</h3>
+            }
 
-     {
-        error?.message &&
-        <h3 className="login-error">{error.message}</h3>
-    }
+            <form onSubmit={handleSubmit} className="login-form">
+                <input
+                    name="email"
+                    onChange={handleChange}
+                    type="email"
+                    placeholder="Email address"
+                    value={loginFormData.email}
+                    autoComplete="email"
+                />
+                <input
+                    name="password"
+                    onChange={handleChange}
+                    type="password"
+                    placeholder="Password"
+                    value={loginFormData.password}
+                    autoComplete="current-password"                />
+                <button
+                    disabled={status === "submitting"}
+                >
+                    {status === "submitting"
+                        ? "Logging in..."
+                        : "Log in"
+                    }
+                </button>
+            </form>
+        </div>
+    )
 
-     <form onSubmit={handleSubmit} className="login-form"> 
-      <input
-        name="email"
-        type="email"
-        onChange={handleChange}
-        value={loginFormData.email}
-        className="email-form"
-        placeholder="Email address"
-        />
-      <input  
-        type="password"
-        name="password"
-        className="password-form"
-        placeholder="Password"
-        onChange={handleChange}
-        value={loginFormData.password}
-        />
-    <button disabled={status === 'submitting'} type="submit" className="submit-btn">
-    {status==='submitting'?'Logging in...' : 'Log in'}</button>        
-    </form>
-    </div>
-  )
 }
-

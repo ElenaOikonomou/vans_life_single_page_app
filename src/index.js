@@ -20,7 +20,7 @@ import HostVanInfo from './pages/Host/HostVanInfo.js';
 import HostVanPhotos from './pages/Host/HostVanPhotos.js';
 import NotFound from './pages/NotFound.js';
 import Login from './pages/Login.js'
-import AuthRequiredLayout from './components/AuthRequiredLayout.js';
+import AuthRequired from './components/AuthRequired.js';
 
 //the server file is for setting up a server to handle requests and serve the static files (html, css, js)
 import "./server"
@@ -41,7 +41,7 @@ function App() {
         
         <Route path="login" element={<Login/>}/> 
 
-        <Route element={<AuthRequiredLayout/>}>
+        <Route element={<AuthRequired/>}>
           <Route path='/host' element={<HostLayout />}>
             <Route index element={<Dashboard/>}></Route>
             <Route path="income" element={<Income/>}/>
@@ -68,9 +68,9 @@ function App() {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  //<React.StrictMode>
     <App/>
-  </React.StrictMode>
+ // </React.StrictMode>
 );
 
 
