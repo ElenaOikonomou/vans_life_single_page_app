@@ -1,12 +1,14 @@
 import { initializeApp } from "firebase/app"
 import {
-    getFirestore, 
-    collection, 
-    doc, 
+    getFirestore,
+    collection,
+    doc,
     getDocs,
-    getDoc, 
+    getDoc,
     query,
-    where } from "firebase/firestore/lite"
+    where,
+    documentId
+} from "firebase/firestore/lite"
 
 
 const firebaseConfig = {
