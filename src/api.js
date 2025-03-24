@@ -7,7 +7,7 @@ import {
     getDoc,
     query,
     where,
-    documentId
+    //documentId
 } from "firebase/firestore/lite"
 
 
@@ -50,6 +50,7 @@ export async function getVan(id) {
 // for the specified # of milliseconds when used w/ `await`
 // e.g. inside an async function:
 // await sleep(2000)  => pauses the function for 2 seconds before moving on
+// eslint-disable-next-line no-unused-vars
 function sleep(ms) {
     return new Promise(resolve => setTimeout(() => resolve(), ms))
 }
@@ -85,6 +86,7 @@ export async function loginUser(creds) {
     const data = await res.json()
 
     if (!res.ok) {
+        // eslint-disable-next-line no-throw-literal
         throw {
             message: data.message,
             statusText: res.statusText,
